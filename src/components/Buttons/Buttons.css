@@ -1,0 +1,19 @@
+body {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+/*
+.allButtons {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}*/
+
+.button {
+	margin: 5px;
+	background: lightblue;
+	color: white;
+	width: 190px;
+	height: 30px;
+}
