@@ -24,10 +24,10 @@
 	width: 24vw;
 	margin: 1vw;
 	font-family: 'Courier New', Courier, monospace;
-	font-size: 30px;
+	font-size: 20px;
 }
 
-@media screen and (max-width: 541px) {
+@media screen and (max-width: 600px) {
   .answers {
   	display: flex;
   	flex-direction: column;

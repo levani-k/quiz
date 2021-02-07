@@ -14,7 +14,8 @@ class Tasks extends React.Component {
 
 	changeQuestionForWrong = () => {
 		this.setState({
-			task: this.state.task + 1
+			task: this.state.task + 1,
+			totalScores: this.state.totalScores - 2
 		})
 	}
 
@@ -123,6 +124,9 @@ class Tasks extends React.Component {
 				<div className='tc'>
 					<h1>Your Total Scores Are...</h1>
 					<h1 className='tc'>{`${this.state.totalScores}`}</h1>
+					{
+						this.state.totalScores <= 0 ? <h4>Are you kidding me???</h4> : this.state.totalScores <= 40 ? <h4>that's okey</h4> : <h4>Wow I Levani kistauri, will declare you as the champion</h4>
+					}
 					<button onClick={this.props.getQuiz} className='button'>new quiz</button>
 					<button onClick={this.restartQuiz} className='button'>reset quiz</button>
 				</div>

@@ -48,7 +48,7 @@ class Buttons extends React.Component{
 			<div>
 				<Type />
 				<div className='allButtons tc'>
-					<select value={this.state.trivia_category} name="trivia_category" className="button" onChange={this.handleChange}>>
+					<select value={this.state.trivia_category} name="trivia_category" className="button" onChange={this.handleChange}>
 						<option value="any">Select Category</option>
 						<option value="9">General Knowledge</option><option value="10">Entertainment: Books</option>
 						<option value="11">Entertainment: Film</option><option value="12">Entertainment: Music</option>
@@ -73,7 +73,7 @@ class Buttons extends React.Component{
 						<option value="31">Entertainment: Japanese Anime &amp; Manga</option>
 						<option value="32">Entertainment: Cartoon &amp; Animations</option>		
 					</select>
-					<select value={this.state.trivia_difficulty} name="trivia_difficulty" className="button" onChange={this.handleChange}>>
+					<select value={this.state.trivia_difficulty} name="trivia_difficulty" className="button" onChange={this.handleChange}>
 						<option value="any">Select Difficulty</option>
 						<option value="easy">Easy</option>
 						<option value="medium">Medium</option>
@@ -81,6 +81,7 @@ class Buttons extends React.Component{
 					</select>
 					<button className="button" onClick={this.getQuiz}>Start</button>
 				</div>
+				<p className='tc ma2'>here is our rules If your answer turns out to be correct you will get 5 points otherwise you will lose 2 points</p>
 			</div>
 			
 		)
