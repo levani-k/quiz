@@ -81,7 +81,7 @@ class Buttons extends React.Component{
 					</select>
 					<button className="button" onClick={this.getQuiz}>Start</button>
 				</div>
-				<p className='tc ma2'>here is our rules If your answer turns out to be correct you will get 5 points otherwise you will lose 2 points</p>
+				<p className='tc ma2'>here is our rules If your answer turns out to be correct you will get 5 points</p>
 			</div>
 			
 		)

@@ -14,8 +14,7 @@ class Tasks extends React.Component {
 
 	changeQuestionForWrong = () => {
 		this.setState({
-			task: this.state.task + 1,
-			totalScores: this.state.totalScores - 2
+			task: this.state.task + 1
 		})
 	}
 

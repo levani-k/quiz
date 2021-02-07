@@ -19,6 +19,7 @@ class App extends React.Component{
       this.state.categories.push(data.trivia_categories)
     })
   }
+  
   render() {
     return(
       <div>
