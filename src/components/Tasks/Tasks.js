@@ -34,38 +34,38 @@ class Tasks extends React.Component {
 		let num = Math.floor(Math.random() * 4)
 		if (num == 0 ) {
 			return (
-				<div className='questionAndAnswers'>
-					<button onClick={this.changeQuestionForCorrect}>{tasks[task].correct_answer}</button>
-					<button onClick={this.changeQuestionForWrong}>{tasks[task].incorrect_answers[0]}</button>
-					<button onClick={this.changeQuestionForWrong}>{tasks[task].incorrect_answers[1]}</button>
-					<button onClick={this.changeQuestionForWrong}>{tasks[task].incorrect_answers[2]}</button>
+				<div className='answers'>
+					<button onClick={this.changeQuestionForCorrect} className='answer' >{tasks[task].correct_answer}</button>
+					<button onClick={this.changeQuestionForWrong} className='answer' >{tasks[task].incorrect_answers[0]}</button>
+					<button onClick={this.changeQuestionForWrong} className='answer' >{tasks[task].incorrect_answers[1]}</button>
+					<button onClick={this.changeQuestionForWrong} className='answer' >{tasks[task].incorrect_answers[2]}</button>
 				</div>
 			)
 		} else if(num == 1) {
 			return (
-				<div className='questionAndAnswers'>
-					<button onClick={this.changeQuestionForWrong}>{tasks[task].incorrect_answers[0]}</button>
-					<button onClick={this.changeQuestionForCorrect}>{tasks[task].correct_answer}</button>
-					<button onClick={this.changeQuestionForWrong}>{tasks[task].incorrect_answers[1]}</button>
-					<button onClick={this.changeQuestionForWrong}>{tasks[task].incorrect_answers[2]}</button>
+				<div className='answers'>
+					<button onClick={this.changeQuestionForWrong} className='answer' >{tasks[task].incorrect_answers[0]}</button>
+					<button onClick={this.changeQuestionForCorrect} className='answer' >{tasks[task].correct_answer}</button>
+					<button onClick={this.changeQuestionForWrong} className='answer' >{tasks[task].incorrect_answers[1]}</button>
+					<button onClick={this.changeQuestionForWrong} className='answer' >{tasks[task].incorrect_answers[2]}</button>
 				</div>
 			)
 		} else if(num == 2) {
 			return (
-				<div className='questionAndAnswers'>
-					<button onClick={this.changeQuestionForWrong}>{tasks[task].incorrect_answers[0]}</button>
-					<button onClick={this.changeQuestionForWrong}>{tasks[task].incorrect_answers[1]}</button>
-					<button onClick={this.changeQuestionForCorrect}>{tasks[task].correct_answer}</button>
-					<button onClick={this.changeQuestionForWrong}>{tasks[task].incorrect_answers[2]}</button>
+				<div className='answers'>
+					<button onClick={this.changeQuestionForWrong} className='answer' >{tasks[task].incorrect_answers[0]}</button>
+					<button onClick={this.changeQuestionForWrong} className='answer' >{tasks[task].incorrect_answers[1]}</button>
+					<button onClick={this.changeQuestionForCorrect} className='answer' >{tasks[task].correct_answer}</button>
+					<button onClick={this.changeQuestionForWrong} className='answer' >{tasks[task].incorrect_answers[2]}</button>
 				</div>
 			)
 		} else if(num == 3) {
 			return (
-				<div className='questionAndAnswers'>
-					<button onClick={this.changeQuestionForWrong}>{tasks[task].incorrect_answers[0]}</button>
-					<button onClick={this.changeQuestionForWrong}>{tasks[task].incorrect_answers[1]}</button>
-					<button onClick={this.changeQuestionForWrong}>{tasks[task].incorrect_answers[2]}</button>
-					<button onClick={this.changeQuestionForCorrect}>{tasks[task].correct_answer}</button>
+				<div className='answers'>
+					<button onClick={this.changeQuestionForWrong}  className='answer' >{tasks[task].incorrect_answers[0]}</button>
+					<button onClick={this.changeQuestionForWrong} className='answer' >{tasks[task].incorrect_answers[1]}</button>
+					<button onClick={this.changeQuestionForWrong} className='answer' >{tasks[task].incorrect_answers[2]}</button>
+					<button onClick={this.changeQuestionForCorrect} className='answer' >{tasks[task].correct_answer}</button>
 				</div>
 			)
 			
@@ -81,16 +81,16 @@ class Tasks extends React.Component {
 		let num = Math.floor(Math.random() * 2)
 		if(num == 0) {
 			return (
-				<div className='questionAndAnswers'>
-					<button onClick={this.changeQuestionForCorrect}>{tasks[task].correct_answer}</button>
-					<button onClick={this.changeQuestionForWrong}>{tasks[task].incorrect_answers[0]}</button>
+				<div className='answers tc'>
+					<button onClick={this.changeQuestionForCorrect} className='answer' >{tasks[task].correct_answer}</button>
+					<button onClick={this.changeQuestionForWrong} className='answer' >{tasks[task].incorrect_answers[0]}</button>
 				</div>
 			)
 		} else if(num == 1) {
 			return (
-				<div className='questionAndAnswers'>
-					<button onClick={this.changeQuestionForWrong}>{tasks[task].incorrect_answers[0]}</button>
-					<button onClick={this.changeQuestionForCorrect}>{tasks[task].correct_answer}</button>
+				<div className='answers tc'>
+					<button onClick={this.changeQuestionForWrong} className='answer' >{tasks[task].incorrect_answers[0]}</button>
+					<button onClick={this.changeQuestionForCorrect} className='answer' >{tasks[task].correct_answer}</button>
 				</div>
 			)
 		} else {
@@ -103,12 +103,11 @@ class Tasks extends React.Component {
 	render() {
 		const { tasks, task } = this.state
 		return (
-		<div>
-			<h1 className='tc'>YOUR TOTAL SCORES ARE...</h1>
+		<div className='tc'>
 			{
 				this.state.task < this.props.tasks.length
 				? 
-				<div className='questionAndAnswers ma2'>
+				<div className='questionAndAnswers ma2 tc'>
 					<div className='question'><h4 className='tc'>{tasks[task].question}</h4></div>
 					{
 						tasks[task].incorrect_answers.length == 1 
@@ -117,13 +116,15 @@ class Tasks extends React.Component {
 						:
 						this.shuffleFourAnswer()
 					}
+					<p>help from creator "Think Before You Click" ^-^</p>
 				</div>
 
 				: 
 				<div className='tc'>
+					<h1>Your Total Scores Are...</h1>
 					<h1 className='tc'>{`${this.state.totalScores}`}</h1>
 					<button onClick={this.props.getQuiz} className='button'>new quiz</button>
-					<button onClick={this.restartQuiz} className='button'>reset current quiz</button>
+					<button onClick={this.restartQuiz} className='button'>reset quiz</button>
 				</div>
 			}
 		</div>
