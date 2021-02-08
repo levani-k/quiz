@@ -1,5 +1,5 @@
 import React from 'react'
-import Buttons from './components/Buttons/Buttons'
+import SelectQuizType from './components/SelectQuizType/SelectQuizType'
 
 
 
@@ -23,7 +23,7 @@ class App extends React.Component{
   render() {
     return(
       <div>
-        <Buttons categories={this.state.categories}/>
+        <SelectQuizType categories={this.state.categories}/>
       </div>
     )
   }

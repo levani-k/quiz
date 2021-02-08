@@ -1,71 +1,71 @@
 import React from 'react'
 import './Tasks.css'
-import Buttons from '../Buttons/Buttons'
+import SelectQuizType from '../SelectQuizType/SelectQuizType'
 
 class Tasks extends React.Component {
 	constructor(props) {
 		super(props)
 		this.state = {
-			tasks: props.tasks,
-			task: 0,
+			QAarray: props.QAarray,
+			currentTask: 0,
 			totalScores: 0
 		}
 	}
 
 	changeQuestionForWrong = () => {
 		this.setState({
-			task: this.state.task + 1
+			currentTask: this.state.currentTask + 1
 		})
 	}
 
 	changeQuestionForCorrect = () => {
 		this.setState({
-			task: this.state.task + 1,
+			currentTask: this.state.currentTask + 1,
 			totalScores: this.state.totalScores + 5
 		})
 	}
 
 	restartQuiz = () => {
-		this.setState({task: 0, totalScores: 0})
+		this.setState({currentTask: 0, totalScores: 0})
 	}
 
 	shuffleFourAnswer = () => {
-		const { tasks, task } = this.state
+		const { QAarray, currentTask } = this.state
 		let num = Math.floor(Math.random() * 4)
 		if (num == 0 ) {
 			return (
 				<div className='answers'>
-					<button onClick={this.changeQuestionForCorrect} className='answer' >{tasks[task].correct_answer}</button>
-					<button onClick={this.changeQuestionForWrong} className='answer' >{tasks[task].incorrect_answers[0]}</button>
-					<button onClick={this.changeQuestionForWrong} className='answer' >{tasks[task].incorrect_answers[1]}</button>
-					<button onClick={this.changeQuestionForWrong} className='answer' >{tasks[task].incorrect_answers[2]}</button>
+					<button onClick={this.changeQuestionForCorrect} className='answer' >{QAarray[currentTask].correct_answer}</button>
+					<button onClick={this.changeQuestionForWrong} className='answer' >{QAarray[currentTask].incorrect_answers[0]}</button>
+					<button onClick={this.changeQuestionForWrong} className='answer' >{QAarray[currentTask].incorrect_answers[1]}</button>
+					<button onClick={this.changeQuestionForWrong} className='answer' >{QAarray[currentTask].incorrect_answers[2]}</button>
 				</div>
 			)
 		} else if(num == 1) {
 			return (
 				<div className='answers'>
-					<button onClick={this.changeQuestionForWrong} className='answer' >{tasks[task].incorrect_answers[0]}</button>
-					<button onClick={this.changeQuestionForCorrect} className='answer' >{tasks[task].correct_answer}</button>
-					<button onClick={this.changeQuestionForWrong} className='answer' >{tasks[task].incorrect_answers[1]}</button>
-					<button onClick={this.changeQuestionForWrong} className='answer' >{tasks[task].incorrect_answers[2]}</button>
+					<button onClick={this.changeQuestionForWrong} className='answer' >{QAarray[currentTask].incorrect_answers[0]}</button>
+					<button onClick={this.changeQuestionForCorrect} className='answer' >{QAarray[currentTask].correct_answer}</button>
+					<button onClick={this.changeQuestionForWrong} className='answer' >{QAarray[currentTask].incorrect_answers[1]}</button>
+					<button onClick={this.changeQuestionForWrong} className='answer' >{QAarray[currentTask].incorrect_answers[2]}</button>
 				</div>
 			)
 		} else if(num == 2) {
 			return (
 				<div className='answers'>
-					<button onClick={this.changeQuestionForWrong} className='answer' >{tasks[task].incorrect_answers[0]}</button>
-					<button onClick={this.changeQuestionForWrong} className='answer' >{tasks[task].incorrect_answers[1]}</button>
-					<button onClick={this.changeQuestionForCorrect} className='answer' >{tasks[task].correct_answer}</button>
-					<button onClick={this.changeQuestionForWrong} className='answer' >{tasks[task].incorrect_answers[2]}</button>
+					<button onClick={this.changeQuestionForWrong} className='answer' >{QAarray[currentTask].incorrect_answers[0]}</button>
+					<button onClick={this.changeQuestionForWrong} className='answer' >{QAarray[currentTask].incorrect_answers[1]}</button>
+					<button onClick={this.changeQuestionForCorrect} className='answer' >{QAarray[currentTask].correct_answer}</button>
+					<button onClick={this.changeQuestionForWrong} className='answer' >{QAarray[currentTask].incorrect_answers[2]}</button>
 				</div>
 			)
 		} else if(num == 3) {
 			return (
 				<div className='answers'>
-					<button onClick={this.changeQuestionForWrong}  className='answer' >{tasks[task].incorrect_answers[0]}</button>
-					<button onClick={this.changeQuestionForWrong} className='answer' >{tasks[task].incorrect_answers[1]}</button>
-					<button onClick={this.changeQuestionForWrong} className='answer' >{tasks[task].incorrect_answers[2]}</button>
-					<button onClick={this.changeQuestionForCorrect} className='answer' >{tasks[task].correct_answer}</button>
+					<button onClick={this.changeQuestionForWrong}  className='answer' >{QAarray[currentTask].incorrect_answers[0]}</button>
+					<button onClick={this.changeQuestionForWrong} className='answer' >{QAarray[currentTask].incorrect_answers[1]}</button>
+					<button onClick={this.changeQuestionForWrong} className='answer' >{QAarray[currentTask].incorrect_answers[2]}</button>
+					<button onClick={this.changeQuestionForCorrect} className='answer' >{QAarray[currentTask].correct_answer}</button>
 				</div>
 			)
 			
@@ -77,20 +77,20 @@ class Tasks extends React.Component {
 	}
 
 	shuffleTwoAnswer = () => {
-		const { tasks, task } = this.state
+		const { QAarray, currentTask } = this.state
 		let num = Math.floor(Math.random() * 2)
 		if(num == 0) {
 			return (
 				<div className='answers tc'>
-					<button onClick={this.changeQuestionForCorrect} className='answer' >{tasks[task].correct_answer}</button>
-					<button onClick={this.changeQuestionForWrong} className='answer' >{tasks[task].incorrect_answers[0]}</button>
+					<button onClick={this.changeQuestionForCorrect} className='answer' >{QAarray[currentTask].correct_answer}</button>
+					<button onClick={this.changeQuestionForWrong} className='answer' >{QAarray[currentTask].incorrect_answers[0]}</button>
 				</div>
 			)
 		} else if(num == 1) {
 			return (
 				<div className='answers tc'>
-					<button onClick={this.changeQuestionForWrong} className='answer' >{tasks[task].incorrect_answers[0]}</button>
-					<button onClick={this.changeQuestionForCorrect} className='answer' >{tasks[task].correct_answer}</button>
+					<button onClick={this.changeQuestionForWrong} className='answer' >{QAarray[currentTask].incorrect_answers[0]}</button>
+					<button onClick={this.changeQuestionForCorrect} className='answer' >{QAarray[currentTask].correct_answer}</button>
 				</div>
 			)
 		} else {
@@ -101,16 +101,17 @@ class Tasks extends React.Component {
 	}
 
 	render() {
-		const { tasks, task } = this.state
+		// destructure states
+		const { QAarray, currentTask, totalScores } = this.state
 		return (
 		<div className='tc'>
 			{
-				this.state.task < this.props.tasks.length
+				currentTask < this.props.QAarray.length
 				? 
 				<div className='questionAndAnswers ma2 tc'>
-					<div className='question'><h4 className='tc'>{tasks[task].question}</h4></div>
+					<div className='question'><h4 className='tc'>{QAarray[currentTask].question}</h4></div>
 					{
-						tasks[task].incorrect_answers.length == 1 
+						QAarray[currentTask].incorrect_answers.length == 1 
 						?
 						this.shuffleTwoAnswer()
 						:
@@ -122,9 +123,9 @@ class Tasks extends React.Component {
 				: 
 				<div className='tc'>
 					<h1>Your Total Scores Are...</h1>
-					<h1 className='tc'>{`${this.state.totalScores}`}</h1>
+					<h1 className='tc'>{`${totalScores}`}</h1>
 					{
-						this.state.totalScores <= 0 ? <h4>Are you kidding me???</h4> : this.state.totalScores <= 40 ? <h4>that's okey</h4> : <h4>Wow I Levani kistauri, will declare you as the champion</h4>
+						totalScores <= 0 ? <h4>Are you kidding me???</h4> : totalScores <= 40 ? <h4>that's okey</h4> : <h4>Wow I Levani kistauri, will declare you as the champion</h4>
 					}
 					<button onClick={this.props.getQuiz} className='button'>new quiz</button>
 					<button onClick={this.restartQuiz} className='button'>reset quiz</button>
