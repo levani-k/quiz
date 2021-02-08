@@ -30,7 +30,7 @@ class Tasks extends React.Component {
 
 	shuffleFourAnswer = () => {
 		const { currentTask } = this.state
-		const { QAarray } this.props
+		const { QAarray } = this.props
 		let num = Math.floor(Math.random() * 4)
 		if (num == 0 ) {
 			return (
