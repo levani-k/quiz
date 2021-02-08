@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/quiz/static/css/main.a3df6c2d.chunk.css",
-    "main.js": "/quiz/static/js/main.3125809f.chunk.js",
-    "main.js.map": "/quiz/static/js/main.3125809f.chunk.js.map",
+    "main.css": "/quiz/static/css/main.a6cca9d7.chunk.css",
+    "main.js": "/quiz/static/js/main.fc392263.chunk.js",
+    "main.js.map": "/quiz/static/js/main.fc392263.chunk.js.map",
     "runtime-main.js": "/quiz/static/js/runtime-main.d3d7e8bc.js",
     "runtime-main.js.map": "/quiz/static/js/runtime-main.d3d7e8bc.js.map",
     "static/css/2.31461e4f.chunk.css": "/quiz/static/css/2.31461e4f.chunk.css",
@@ -12,7 +12,7 @@
     "static/js/3.ffc32543.chunk.js.map": "/quiz/static/js/3.ffc32543.chunk.js.map",
     "index.html": "/quiz/index.html",
     "static/css/2.31461e4f.chunk.css.map": "/quiz/static/css/2.31461e4f.chunk.css.map",
-    "static/css/main.a3df6c2d.chunk.css.map": "/quiz/static/css/main.a3df6c2d.chunk.css.map",
+    "static/css/main.a6cca9d7.chunk.css.map": "/quiz/static/css/main.a6cca9d7.chunk.css.map",
     "static/js/2.5d011e85.chunk.js.LICENSE.txt": "/quiz/static/js/2.5d011e85.chunk.js.LICENSE.txt",
     "static/media/index.css": "/quiz/static/media/backgroundImage.8275c5ac.jpg"
   },
@@ -20,7 +20,7 @@
     "static/js/runtime-main.d3d7e8bc.js",
     "static/css/2.31461e4f.chunk.css",
     "static/js/2.5d011e85.chunk.js",
-    "static/css/main.a3df6c2d.chunk.css",
-    "static/js/main.3125809f.chunk.js"
+    "static/css/main.a6cca9d7.chunk.css",
+    "static/js/main.fc392263.chunk.js"
   ]
 }
