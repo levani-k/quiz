@@ -9,7 +9,7 @@ class SelectQuizType extends React.Component{
 			trivia_category: '',
 			trivia_difficulty: '',
 			QAarray: [],
-			triger: false
+			isTaskDisplayed: false
 		}
 	}
 
@@ -21,14 +21,14 @@ class SelectQuizType extends React.Component{
         })
     }
 
-    // fetch quiz with 
+    // fetch quiz By user-entered criteria, then change isTaskDisplayed to true and clean up input values in state
     getQuiz = () => {
     	fetch(`https://opentdb.com/api.php?amount=10&category=${this.state.trivia_category}&difficulty=${this.state.trivia_difficulty}`)
     	.then(response => response.json())
     	.then(data => {
     		this.setState({
     			QAarray: data.results,
-            	triger: !this.state.triger,
+            	isTaskDisplayed: !this.state.isTaskDisplayed,
             	trivia_category: '',
             	trivia_difficulty: ''
         	})
@@ -37,10 +37,11 @@ class SelectQuizType extends React.Component{
     }
 	
 	render() {
+		const { QAarray, trivia_difficulty, trivia_category, isTaskDisplayed } = this.state
 		return(
-			this.state.triger 
+			isTaskDisplayed 
 			? 
-			<Tasks QAarray={this.state.QAarray} getQuiz={this.getQuiz} /> 
+			<Tasks QAarray={QAarray} getQuiz={this.getQuiz} /> 
 			:
 			<div>
 				<div className='tc'>
@@ -48,14 +49,14 @@ class SelectQuizType extends React.Component{
 					<h3>"A winner is a dreamer who never gives up"</h3>
 				</div>
 				<div className='allButtons tc'>
-					{
-						this.state.trivia_difficulty != '' && this.state.trivia_category != '' 
+					{	// check both fields if they are not empty, display dificulty and then category, when they are entered display start button
+						trivia_difficulty != '' && trivia_category != '' 
 						?
 							<button className="button" onClick={this.getQuiz}>Start</button>
 						: 
-						this.state.trivia_difficulty != ''
+							trivia_difficulty != ''
 						?
-							<select value={this.state.trivia_category} name="trivia_category" className="button" onChange={this.handleChange}>
+							<select value={trivia_category} name="trivia_category" className="button" onChange={this.handleChange}>
 								<option value="any">Select Category</option>
 								{
 									this.props.categories[0].map((genre, index) => {

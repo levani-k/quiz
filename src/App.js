@@ -11,7 +11,7 @@ class App extends React.Component{
     }
   }
 
-
+ // fetch different categories name and id
   componentDidMount(){
     fetch('https://opentdb.com/api_category.php')
     .then(response => response.json())

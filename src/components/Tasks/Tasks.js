@@ -6,7 +6,6 @@ class Tasks extends React.Component {
 	constructor(props) {
 		super(props)
 		this.state = {
-			QAarray: props.QAarray,
 			currentTask: 0,
 			totalScores: 0
 		}
@@ -30,7 +29,8 @@ class Tasks extends React.Component {
 	}
 
 	shuffleFourAnswer = () => {
-		const { QAarray, currentTask } = this.state
+		const { currentTask } = this.state
+		const { QAarray } this.props
 		let num = Math.floor(Math.random() * 4)
 		if (num == 0 ) {
 			return (
@@ -77,7 +77,8 @@ class Tasks extends React.Component {
 	}
 
 	shuffleTwoAnswer = () => {
-		const { QAarray, currentTask } = this.state
+		const { currentTask } = this.state
+		const { QAarray } = this.props
 		let num = Math.floor(Math.random() * 2)
 		if(num == 0) {
 			return (
@@ -102,11 +103,12 @@ class Tasks extends React.Component {
 
 	render() {
 		// destructure states
-		const { QAarray, currentTask, totalScores } = this.state
+		const { currentTask, totalScores } = this.state
+		const { QAarray, getQuiz } = this.props
 		return (
 		<div className='tc'>
 			{
-				currentTask < this.props.QAarray.length
+				currentTask < QAarray.length
 				? 
 				<div className='questionAndAnswers ma2 tc'>
 					<div className='question'><h4 className='tc'>{QAarray[currentTask].question}</h4></div>
@@ -127,7 +129,7 @@ class Tasks extends React.Component {
 					{
 						totalScores <= 0 ? <h4>Are you kidding me???</h4> : totalScores <= 40 ? <h4>that's okey</h4> : <h4>Wow I Levani kistauri, will declare you as the champion</h4>
 					}
-					<button onClick={this.props.getQuiz} className='button'>new quiz</button>
+					<button onClick={getQuiz} className='button'>new quiz</button>
 					<button onClick={this.restartQuiz} className='button'>reset quiz</button>
 				</div>
 			}
